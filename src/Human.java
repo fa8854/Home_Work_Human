@@ -4,29 +4,40 @@ public class Human {
    public String town;
    public String jobTitle;
 
-    Human(int yearOfBrith, String name,String town, String jobTitle){
-        this.name = name;
-        this.yearOfBrith = yearOfBrith;
-        this.town = town;
-        this.jobTitle = jobTitle;
+   Human(int yearOfBrith, String name,String town, String jobTitle){
+       if (yearOfBrith <=0){
+           this.yearOfBrith = Math.abs(yearOfBrith);
+       } else {
+           this.yearOfBrith = yearOfBrith;
+       }
+       if (name == null || name.isBlank()){
+          this.name = "Информация не указана";
+       } else {
+           this.name = name;
+       }
+       if (town == null || town.isBlank()){
+           this.town = "Информация не указана";
+       }else {
+           this.town = town;
+       }
+       if (jobTitle == null || jobTitle.isBlank()){
+           this.town = "Информация не указана";
+       }else {
+           this.jobTitle = jobTitle;
+       }
         }
-
     public int getYearOfBrith() {
         return yearOfBrith;
     }
-
     public String getName() {
         return name;
     }
-
     public String getTown() {
         return town;
     }
-
     public String getJobTitle() {
         return jobTitle;
     }
-
     @Override
     public String toString() {
         return "Привет! Меня зовут " + name + " Я из города " + town  + " Я родился в " + yearOfBrith  + " году. Я работаю на должности " +
